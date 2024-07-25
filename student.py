@@ -194,8 +194,44 @@ class Student:
         teacher_entry.grid(row=4, column=3, padx=10, pady=5, sticky=W)
 
         #radio button
-        radiobtn1=ttk.Radiobutton(class_student_frame,text="take Photo sample",value="YES")
-        radiobtn1.grid(row=5,column=0)
+        radiobtn1=ttk.Radiobutton(class_student_frame,text="Take Photo sample",value="YES")
+        radiobtn1.grid(row=6,column=0)
+
+        #no radio button
+        radiobtn2=ttk.Radiobutton(class_student_frame,text="No Photo sample",value="YES")
+        radiobtn2.grid(row=6,column=1)
+
+        #button Frame
+        btn_frame=Frame(class_student_frame,bd=2,relief=RIDGE,bg="white")
+        btn_frame.place(x=0,y=200,width=715,height=35)
+
+        #save button
+        save_btn=Button(btn_frame,text="Save",font=("Times New Roman", 12, "bold"), bg="blue",fg="white",width=17)
+        save_btn.grid(row=0,column=0)
+
+        #update button
+        update_btn=Button(btn_frame,text="Update",font=("Times New Roman", 12, "bold"), bg="blue",fg="white",width=17)
+        update_btn.grid(row=0,column=1)
+
+        #delete button
+        delete_btn=Button(btn_frame,text="Delete",font=("Times New Roman", 12, "bold"), bg="blue",fg="white",width=17)
+        delete_btn.grid(row=0,column=2)
+
+        #reset button
+        reset_btn=Button(btn_frame,text="Reset",font=("Times New Roman", 12, "bold"), bg="blue",fg="white",width=17)
+        reset_btn.grid(row=0,column=3)
+
+
+        btn_frame1=Frame(class_student_frame,bd=2,relief=RIDGE,bg="white")
+        btn_frame1.place(x=0,y=235,width=715,height=35)
+        #take photo button
+        take_photo_btn=Button(btn_frame1,text="Take Photo Sample",font=("Times New Roman", 12, "bold"), bg="blue",fg="white",width=15)
+        take_photo_btn.grid(row=0,column=0)
+
+        #update photo button
+        #reset button
+        update_photo_btn=Button(btn_frame1,text="Update Photo Sample",font=("Times New Roman", 12, "bold"), bg="blue",fg="white",width=15)
+        update_photo_btn.grid(row=0,column=1)
 
         #Right label frame
         Right_frame=LabelFrame(main_frame,bd=2,bg="white",relief=RIDGE,text="Student Details",font=("times new roman",12,"bold"))
