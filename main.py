@@ -1,7 +1,8 @@
 from tkinter import *
 from tkinter import ttk
 from PIL import Image,ImageTk
-
+from student import Student
+import os
 
 class Face_recognitation_system:
     def __init__(self,root):
@@ -10,7 +11,7 @@ class Face_recognitation_system:
         self.root.title("face recognition system")
 
         #first image
-        img=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\Stanford.jpg")
+        img=Image.open(r"college_images\Stanford.jpg")
         img=img.resize((500,130),Image.LANCZOS)
         self.photoimg=ImageTk.PhotoImage(img)
         
@@ -18,7 +19,7 @@ class Face_recognitation_system:
         f_lbl.place(x=0,y=0,width=500,height=130)
 
         #Second image
-        img1=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\facialrecognition.png")
+        img1=Image.open(r"college_images\facialrecognition.png")
         img1=img1.resize((500,130),Image.LANCZOS)
         self.photoimg1=ImageTk.PhotoImage(img1)
         
@@ -26,7 +27,7 @@ class Face_recognitation_system:
         f_lbl1.place(x=500,y=0,width=500,height=130)
 
         #third image
-        img2=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\u.jpg")
+        img2=Image.open(r"college_images\u.jpg")
         img2=img2.resize((500,130),Image.LANCZOS)
         self.photoimg2=ImageTk.PhotoImage(img2)
         
@@ -34,7 +35,7 @@ class Face_recognitation_system:
         f_lbl2.place(x=1000,y=0,width=550,height=130)
 
         #background image
-        img3=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\R.jpeg")
+        img3=Image.open(r"college_images\R.jpeg")
         img3=img3.resize((1530,710),Image.LANCZOS)
         self.photoimg3=ImageTk.PhotoImage(img3)
         
@@ -47,18 +48,18 @@ class Face_recognitation_system:
 
 
         #student button
-        img4=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\student.jpeg")
+        img4=Image.open(r"college_images\student.jpeg")
         img4=img4.resize((220,220),Image.LANCZOS)
         self.photoimg4=ImageTk.PhotoImage(img4)
 
-        b1=Button(bg_img,image=self.photoimg4,cursor="hand2")
+        b1=Button(bg_img,image=self.photoimg4,command=self.student_details,cursor="hand2")
         b1.place(x=200,y=100,width=220,height=220)
 
-        b1_1=Button(bg_img,text="Student Details",cursor="hand2",font=("times new Roman",15,"bold"),bg="darkblue",fg="white")
+        b1_1=Button(bg_img,text="Student Details",command=self.student_details,cursor="hand2",font=("times new Roman",15,"bold"),bg="darkblue",fg="white")
         b1_1.place(x=200,y=300,width=220,height=40)
 
         #Detect face button
-        img5=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\face_detector1.jpg")
+        img5=Image.open(r"college_images\face_detector1.jpg")
         img5=img5.resize((220,220),Image.LANCZOS)
         self.photoimg5=ImageTk.PhotoImage(img5)
 
@@ -69,7 +70,7 @@ class Face_recognitation_system:
         b1_2.place(x=500,y=300,width=220,height=40)
 
         #attendance button
-        img6=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\report.jpg")
+        img6=Image.open(r"college_images\report.jpg")
         img6=img6.resize((220,220),Image.LANCZOS)
         self.photoimg6=ImageTk.PhotoImage(img6)
 
@@ -81,7 +82,7 @@ class Face_recognitation_system:
 
 
         #Help button
-        img7=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\helpdesk.jpg")
+        img7=Image.open(r"college_images\helpdesk.jpg")
         img7=img7.resize((220,220),Image.LANCZOS)
         self.photoimg7=ImageTk.PhotoImage(img7)
 
@@ -93,7 +94,7 @@ class Face_recognitation_system:
 
 
         #Train button
-        img8=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\train.jpg")
+        img8=Image.open(r"college_images\train.jpg")
         img8=img8.resize((220,220),Image.LANCZOS)
         self.photoimg8=ImageTk.PhotoImage(img8)
 
@@ -105,18 +106,18 @@ class Face_recognitation_system:
 
 
         #Photo button
-        img9=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\opencv_face_reco_more_data.jpg")
+        img9=Image.open(r"college_images\opencv_face_reco_more_data.jpg")
         img9=img9.resize((220,220),Image.LANCZOS)
         self.photoimg9=ImageTk.PhotoImage(img9)
 
-        b1=Button(bg_img,image=self.photoimg9,cursor="hand2")
+        b1=Button(bg_img,image=self.photoimg9,cursor="hand2",command=self.open_img)
         b1.place(x=500,y=380,width=220,height=220)
 
-        b1_2=Button(bg_img,text="Photos",cursor="hand2",font=("times new Roman",15,"bold"),bg="darkblue",fg="white")
+        b1_2=Button(bg_img,text="Photos",cursor="hand2",command=self.open_img,font=("times new Roman",15,"bold"),bg="darkblue",fg="white")
         b1_2.place(x=500,y=580,width=220,height=40)
 
         #developer button
-        img10=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\Team-Management-Software-Development.jpg")
+        img10=Image.open(r"college_images\Team-Management-Software-Development.jpg")
         img10=img10.resize((220,220),Image.LANCZOS)
         self.photoimg10=ImageTk.PhotoImage(img10)
 
@@ -127,7 +128,7 @@ class Face_recognitation_system:
         b1_2.place(x=800,y=580,width=220,height=40)
 
         # Exit button
-        img11=Image.open(r"C:\Users\adity\Downloads\face_recognitation_tkinter\college_images\exit.jpg")
+        img11=Image.open(r"college_images\exit.jpg")
         img11=img11.resize((220,220),Image.LANCZOS)
         self.photoimg11=ImageTk.PhotoImage(img11)
 
@@ -135,7 +136,19 @@ class Face_recognitation_system:
         b1.place(x=1100,y=380,width=220,height=220)
 
         b1_2=Button(bg_img,text="Exit",cursor="hand2",font=("times new Roman",15,"bold"),bg="darkblue",fg="white")
+  
         b1_2.place(x=1100,y=580,width=220,height=40)
+
+    def open_img(self):
+        os.startfile("data") 
+
+        #==================function buttton ===============
+
+    def student_details(self):
+        self.new_window=Toplevel(self.root)
+        self.app=Student(self.new_window)
+    
+
 
 if __name__=="__main__":
     root=Tk()
