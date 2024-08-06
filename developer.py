@@ -23,7 +23,7 @@ class Developer:
         main_frame = Frame(f_lbl, bd=2, bg="white")
         main_frame.place(x=1000, y=0, width=500, height=600)
 
-        img_top1 = Image.open(r"college_images\kiran.jpg")
+        img_top1 = Image.open(r"college_images\myprofile.png")
         img_top1= img_top1.resize((200, 200), Image.LANCZOS)
         self.photoimg_top1 = ImageTk.PhotoImage(img_top1)
         f_lbl = Label(main_frame, image=self.photoimg_top1)
