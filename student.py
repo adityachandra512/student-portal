@@ -354,7 +354,6 @@ class Student:
         self.var_address.set(data[12])
         self.var_teacher.set(data[13])
         self.var_radio1.set(data[14])
-        self.var_photo.set(data[15])
 
     # Function to Update data
     def update_data(self):
